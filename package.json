@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run prod && serve -s dist",
     "dev": "webpack serve --mode=development",
     "prod": "NODE_ENV=production webpack --mode=production",
-    "start": "npm run prod && serve -s dist",
     "test": "jest"
   },
   "keywords": [],
