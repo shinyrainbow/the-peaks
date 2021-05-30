@@ -1,0 +1,18 @@
+@import "./../../variables.scss";
+
+.bookmark-button {
+  height: 30px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px 12px 3px 12px;
+  background-color: $darkBlue;
+  border-radius: 5px;
+  color: $white;
+  vertical-align: middle;
+  img {
+    padding-right: 10px;
+    vertical-align: top;
+  }
+}

@@ -1,0 +1,9 @@
+.bookmark-page{
+  min-height: calc(100vh - 369px);
+  padding: 0 164px 265px 164px;
+  .bookmark-result{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap:30px;
+  }
+}

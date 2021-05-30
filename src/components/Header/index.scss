@@ -1,0 +1,85 @@
+@import "./../../variables.scss";
+
+header {
+  width: 100%;
+  padding: 0 164px;
+  height: 126px;
+  background-color: $darkBlue;
+  .wrap {
+    position: relative;
+    height: 100%;
+    .logo {
+      display: inline-block;
+      padding-top: 30px;
+      img {
+        width: 145px;
+      }
+    }
+    .search {
+      display: inline;
+      border-bottom: 2px white solid;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 44px;
+      padding: 10px;
+
+      input {
+        right: 0;
+        background: transparent;
+        border: none;
+        padding-right: 30px;
+        height: 100%;
+        outline: none;
+        &::placeholder {
+          color: $white;
+        }
+      }
+      .show-input {
+        width: 190px;
+        animation: 0.4s ease-out expandInput 1;
+      }
+
+      .hide-input {
+        animation: 0.4s ease-out shrinkInput 1;
+      }
+
+      @keyframes expandInput {
+        0% {
+          width: 0;
+          visibility: hidden;
+        }
+        100% {
+          transition: width 5s ease 4s;
+          visibility: visible;
+        }
+      }
+
+      @keyframes shrinkInput {
+        0% {
+          width: 200px;
+          visibility: visible;
+        }
+        100% {
+          width: 0;
+          visibility: hidden;
+          transition: width 5s ease 4s;
+        }
+      }
+
+      img {
+        height: 17px;
+        width: 90px;
+        cursor: pointer;
+      }
+    }
+
+    .show-bg {
+      background: rgba(white, 0.3);
+    }
+
+    .hide-bg {
+      background: transparent;
+    }
+  }
+}

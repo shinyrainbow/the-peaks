@@ -1,0 +1,28 @@
+@import "./../../variables.scss";
+
+.search-result-page {
+  min-height: calc(100vh - 369px);
+  padding: 0 164px 257px 164px;
+  .search-result {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: $gap;
+  }
+}
+
+@media only screen and (max-width: 1110px) {
+  .search-result-page {
+    padding: 0 60px;
+    margin: auto;
+    .search-result {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+    }
+    .search-page-loader{
+      .loading{
+        height: 80px;
+      }
+    }
+  }
+}

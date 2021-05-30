@@ -1,0 +1,26 @@
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 44px 0 30px 0;
+  .title-bar-text {
+    font-family: Georgia;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 49px;
+    letter-spacing: 0px;
+  }
+  .custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .title-bar {
+    display: flex;
+    flex-direction: column;
+  }
+}

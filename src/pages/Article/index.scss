@@ -1,0 +1,129 @@
+@import "./../../variables.scss";
+
+.article-page {
+  min-height: calc(100vh - 369px);
+  padding: 60px 164px;
+  .article {
+    text-align: left;
+    margin: 0 auto;
+    .article-header {
+      display: flex;
+      .header-content{
+        border-bottom: 2px #979797 solid;
+        .date {
+          padding-top: 18px;
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 31px;
+          letter-spacing: 0.8299999833106995px;
+        }
+        .title {
+          padding-top: 10px;
+          font-family: Georgia;
+          font-size: 34px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 39px;
+          letter-spacing: 0.07000000029802322px;
+        }
+        .headline {
+          padding-top: 10px;
+          font-family: Georgia;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 26px;
+          letter-spacing: 0.07000000029802322px;
+        }
+      }
+      .header-transparent{
+        min-width: 445px;
+      }
+    }
+    .article-wrap {
+      display: flex;
+      position: relative;
+      .reserved-image {
+        display: none;
+        overflow: hidden;
+        padding-top: 20px;
+        min-width: 445px;
+        margin:0 auto;
+        img {
+          max-width: 445px;
+          height: 267px;
+          object-fit: cover;
+        }
+      }
+      .content {
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.10000000149011612px;
+        img {
+          max-width: 450px;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+      .image-wrap {
+        overflow: hidden;
+        padding-top: 13.75px;
+        min-width: 445px;
+        img {
+          max-width: 445px;
+          height: 267px;
+          object-fit: cover;
+        }
+      }
+      .bookmark-notification {
+        position: absolute;
+        top: 350px;
+        padding: 15px;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        color: $white;
+        vertical-align: top;
+        img {
+          margin-right: 10px;
+          vertical-align: top;
+        }
+        &.added {
+          background-color: red;
+        }
+        &.removed {
+          background-color: green;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1110px) {
+    .article {
+      height: 100%;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .article-header{
+        .header-transparent{
+          display: none;
+        }
+      }
+      .article-wrap {
+        width: 100%;
+        .reserved-image {
+          display: block;
+        }
+        .image-wrap {
+          display: none;
+        }
+      }
+    }
+  }
+}
