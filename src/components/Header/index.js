@@ -12,7 +12,6 @@ import Logo from './../../assets/logo.png'
 import Search from './../../assets/search.svg'
 import './index.scss'
 
-
 const mapState = (state) => {
   return {
     query: state.searchResult.query,
@@ -51,12 +50,17 @@ const Header = props => {
     if (!input) {
       setIsComponentVisible(!isComponentVisible)
     }
+
+    const inputElement = document.getElementById("search-input")
+    if (inputElement) {
+      inputElement.focus()
+    }
   }
 
   useEffect(() => {
-    const inputJa = document.getElementById("search")
-    if (inputJa) {
-      inputJa.focus()
+    const inputElement = document.getElementById("search-input")
+    if (inputElement) {
+      inputElement.focus()
     }
   }, [isComponentVisible])
 
@@ -99,14 +103,14 @@ const Header = props => {
             isComponentVisible &&
             <input
               placeholder='Search all news'
-              id="search"
+              id="search-input"
               value={input}
               autoFocus={true}
               className={isComponentVisible ? 'show-input' : 'hide-input'}
               onInput={e => setInput(e.target.value)}
             />
           }
-          <img src={Search} onClick={expandSearch} height='17.5px' />
+          <img src={Search} className="search-icon" onClick={expandSearch} height='17.5px' />
         </div>
       </div>
     </header>

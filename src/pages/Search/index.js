@@ -25,7 +25,7 @@ const mapState = (state) => {
   }
 }
 
-export default function Search() {
+const Search = () => {
   const dispatch = useDispatch()
   const observer = useRef()
   const { searchResult, isSearchLoading, hasMore, page, query, orderBy } = useSelector(mapState);
@@ -90,3 +90,5 @@ export default function Search() {
     </div>
   )
 }
+
+export default Search

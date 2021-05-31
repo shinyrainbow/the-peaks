@@ -31,10 +31,7 @@ module.exports = {
     publicPath: '/',
   },
   devServer: {
-    port: 3000,
-    historyApiFallback: {
-      disableDotRule: true
-    }
+    historyApiFallback: true,
   },
   module: {
     rules: [

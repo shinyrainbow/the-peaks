@@ -3,21 +3,16 @@
 
 
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BookmarkButton from '../BookmarkButton'
 import Sort from '../Sort'
 import './index.scss'
 
-const Title = ({ titleText, 
-  isShowViewBookmarkButton
-  //  path 
-  }) => {
+const Title = ({ titleText, isShowViewBookmarkButton }) => {
   return (
     <div className="title-bar">
       <div className="title-bar-text">{titleText}</div>
-
       <div className="custom">
-
         {
           isShowViewBookmarkButton &&
           <Link to='/bookmarks'>

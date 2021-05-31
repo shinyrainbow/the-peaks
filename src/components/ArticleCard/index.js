@@ -25,10 +25,10 @@ const ArticleCard = ({ size, item, id, detailOnly, borderBottomClass = 'red' }) 
       <Link
         to={{
           pathname: `/article/${id}`,
-          state: {
-            item,
-            id
-          }
+          // state: {
+          //   item,
+          //   id
+          // }
         }}
       >
         {

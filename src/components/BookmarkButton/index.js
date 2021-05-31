@@ -6,7 +6,7 @@ import './index.scss'
 const BookmarkButton = ({ text = 'VIRW BOOKMARK', ...props }) => {
   return (
     <button className="bookmark-button" {...props}>
-      <img src={BookmarkOn} />
+      <img src={text === 'ADD BOOKMARK' ? BookmarkOff: BookmarkOn} />
       {text}
     </button>
   )

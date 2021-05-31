@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 // redux
 import { orderByNewest, orderByOldest } from './../../redux/OrderBy/actions'
@@ -16,11 +16,7 @@ const LIST = {
 
 const dropdownList = [LIST.NEW, LIST.OLD]
 
-const mapState = (state) => ({
-  orderBy: state.orderBy.orderBy
-})
-
-const Sort = ({ handleClick }) => {
+const Sort = () => {
   const dispatch = useDispatch()
   const [selected, setSelect] = useState(LIST.NEW)
   const [orderBy, setOrderBy] = useState('newest')

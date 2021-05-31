@@ -20,8 +20,8 @@ const mapState = (state) => ({
 const Bookmarks = () => {
   const dispatch = useDispatch()
   const { bookmarks, orderBy } = useSelector(mapState)
-  let ch = [...bookmarks]
-  const [sorted, setSort] = useState(ch)
+  let bookmarkSort = [...bookmarks]
+  const [sorted, setSort] = useState(bookmarkSort)
 
   useEffect(() => {
     dispatch(orderByNewest())
@@ -29,9 +29,9 @@ const Bookmarks = () => {
 
   useEffect(() => {
     if (orderBy === 'oldest') {
-      setSort(sortDateOldest(ch))
+      setSort(sortDateOldest(bookmarkSort))
     } else {
-      setSort(sortDateNewest(ch))
+      setSort(sortDateNewest(bookmarkSort))
     }
   }, [orderBy])
 

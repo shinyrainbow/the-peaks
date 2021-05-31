@@ -1,8 +1,14 @@
-## Commands
+Commands
 
 - `npm install`
-- `dev` Runs webpack dev server for development
-- `prod` Runs webpack build
-- `serve` Runs production server
+- `npm start` Runs production server
 
-## http://localhost:3000/
+
+or
+- `npm run dev` Runs webpack dev server for development
+- `npm run prod` Runs webpack build
+
+
+or see Demo at
+## https://the-peaks.herokuapp.com/
+

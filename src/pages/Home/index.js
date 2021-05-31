@@ -13,7 +13,7 @@ import ArticleCard from '../../components/ArticleCard'
 
 import './index.scss'
 
-const mapState = (state) => ({
+export const mapState = (state) => ({
   orderBy: state.orderBy.orderBy,
   bookmarks: state.bookmarks.bookmarks,
   data: state.news.data,

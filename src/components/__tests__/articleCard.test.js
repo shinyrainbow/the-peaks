@@ -1,27 +1,60 @@
-import React from 'react';
+import React from 'react'
+import { configure, shallow } from 'enzyme'
+import 'jsdom-global/register'
+import _ from 'lodash'
+import * as redux from 'react-redux'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
+import ArticleCard from './../../components/ArticleCard'
 
-import ArticleCard from '../ArticleCard';
-import {shallow, configure} from 'enzyme'
+configure({ adapter: new Adapter() })
 
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+describe('ArticleCard', () => {
+  let useSelectorMock = jest.spyOn(redux, 'useSelector')
+  let useDispatchMock = jest.spyOn(redux, 'useDispatch')
 
-configure({ adapter: new Adapter() });
-// configure({adapter: new Adapter()});
+  const dummyDispatch = jest.fn()
+  beforeEach(() => {
+    useDispatchMock.mockReturnValue(dummyDispatch)
+  })
 
-describe('test', () => {
-  test('CheckboxWithLabel changes the text after click', () => {
-    // Render a checkbox with label in the document
-    const checkbox = shallow(<ArticleCard
-    // labelOn="On" labelOff="Off" 
-    />);
+  afterEach(() => {
+    useSelectorMock.mockClear()
+    useDispatchMock.mockClear()
+  })
 
-    expect(checkbox.hasClass('foot-ja')).toBe(true)
-    // .hasClass('foot-js').toBe(true)
-    // .toEqual('Off');
+  const mockItem = {
+    webTitle: 'test',
+    blocks: {
+      main: {},
+      body: [],
+    },
+    webPublicationDate: 'date'
+  }
 
-    // checkbox.find('input').simulate('change');
+  it('Big ArticleCard should render correctly', () => {
+    const wrapper = shallow(
+      <ArticleCard size='big' item={mockItem} id='test' />
+    )
+    expect(wrapper.exists()).toBe(true)
+    expect(wrapper.find('.article-card').length).toBe(1)
+    expect(wrapper.find('.big-card').length).toBe(1)
+  })
 
-    // expect(checkbox.text()).toEqual('On');
-  });
+  it('Normal ArticleCard should render correctly', () => {
+    const wrapper = shallow(
+      <ArticleCard item={mockItem} id='test' />
+    )
+    expect(wrapper.exists()).toBe(true)
+    expect(wrapper.find('.article-card').length).toBe(1)
+    expect(wrapper.find('.normal-card').length).toBe(1)
+  })
+
+  it('Small ArticleCard should render correctly', () => {
+    const wrapper = shallow(
+      <ArticleCard size='small' item={mockItem} id='test' />
+    )
+    expect(wrapper.exists()).toBe(true)
+    expect(wrapper.find('.article-card').length).toBe(1)
+    expect(wrapper.find('.small-card').length).toBe(1)
+  })
 })
-  
