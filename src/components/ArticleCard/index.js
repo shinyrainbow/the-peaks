@@ -21,7 +21,6 @@ const ArticleCard = ({ size, item, id, detailOnly, borderBottomClass = 'red' }) 
   const webPublicationDate = _.get(item, 'webPublicationDate', '')
   const halfCard = detailOnly ? 'show-half-card' : 'hide-half-card'
   return (
-    <div className={`article-card ${cardClass} ${halfCard} ${borderBottomClass}`}>
       <Link
         to={{
           pathname: `/article/${id}`,
@@ -31,6 +30,7 @@ const ArticleCard = ({ size, item, id, detailOnly, borderBottomClass = 'red' }) 
           // }
         }}
       >
+    <div className={`article-card ${cardClass} ${halfCard} ${borderBottomClass}`}>
         {
           coverImage ?
             (
@@ -59,8 +59,8 @@ const ArticleCard = ({ size, item, id, detailOnly, borderBottomClass = 'red' }) 
             <div className="sub-title">{bodyTextSummary}</div>
           }
         </div>
-      </Link>
     </div>
+      </Link>
   )
 }
 

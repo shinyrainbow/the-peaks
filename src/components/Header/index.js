@@ -22,8 +22,8 @@ export const useMountEffect = (fun) => useEffect(fun, []);
 
 const Header = props => {
   const history = useHistory()
-  const location = useLocation()
-  const { pathname } = location
+
+
   const { query, orderBy } = useSelector(mapState);
 
   const [input, setInput] = useState('')
@@ -36,8 +36,9 @@ const Header = props => {
   } = useComponentVisible(input ? true : false, input ? true : false);
 
   const dispatch = useDispatch()
-
+  const { pathname } = location
   useEffect(() => {
+
     if (pathname !== '/search') {
       setHasInputValue(false)
       setIsComponentVisible(false)
@@ -50,17 +51,14 @@ const Header = props => {
     if (!input) {
       setIsComponentVisible(!isComponentVisible)
     }
-
-    const inputElement = document.getElementById("search-input")
-    if (inputElement) {
-      inputElement.focus()
-    }
   }
 
   useEffect(() => {
-    const inputElement = document.getElementById("search-input")
-    if (inputElement) {
-      inputElement.focus()
+    if (isComponentVisible) {
+      const inputElement = document.getElementById("search-input")
+      if (inputElement) {
+        setTimeout(() => inputElement.focus(), 300)
+      }
     }
   }, [isComponentVisible])
 
@@ -69,9 +67,7 @@ const Header = props => {
     if (input) {
       const payload = { query: input, page: 1, orderBy: orderBy }
       dispatch(newSearchStart(payload))
-      if (pathname !== '/search') {
-        history.push({ pathname: '/search', })
-      }
+      history.push({ pathname: '/search', })
     }
   }
 
@@ -103,6 +99,7 @@ const Header = props => {
             isComponentVisible &&
             <input
               placeholder='Search all news'
+              // ref={happy}
               id="search-input"
               value={input}
               autoFocus={true}
